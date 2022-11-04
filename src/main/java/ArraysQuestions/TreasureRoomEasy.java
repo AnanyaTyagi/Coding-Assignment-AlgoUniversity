@@ -52,7 +52,5 @@ public class TreasureRoomEasy {
         }
         if(flag == false)
             System.out.println(-1);
-
-
     }
 }

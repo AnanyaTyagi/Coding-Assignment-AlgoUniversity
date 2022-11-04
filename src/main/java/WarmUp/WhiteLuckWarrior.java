@@ -1,3 +1,5 @@
+package WarmUp;
+
 import java.util.Scanner;
 
 public class WhiteLuckWarrior {
