@@ -7,29 +7,25 @@ public class ChasingDragon {
     public static void main(String[] args) {
 
         Scanner s = new Scanner(System.in);
-        String numberOfCities = s.nextLine();
-        Integer N = Integer.valueOf(numberOfCities);
-        String costOfNCities = s.nextLine();
-        String[] costArrayString = costOfNCities.split(" ");
-        String KNoOfAttacks = s.nextLine();
-        Integer K = Integer.valueOf(KNoOfAttacks);
-        Integer[][] arrayOfDragonAttacks = new Integer[K][2];
+        int N = s.nextInt();
 
         //creating prefix sum array directly
         long sum = 0;
         Long[] prefixSumArray = new Long[N+1];
         for(int i = 0; i<N ;i++) {
-            sum = sum + Integer.valueOf(costArrayString[i]);
+            sum = sum + s.nextInt();
             prefixSumArray[i] = sum;
         }
+
+        int K = s.nextInt();
+        Integer[][] arrayOfDragonAttacks = new Integer[K][2];
+
 
         //inputing array of dragon attacks
         for(int i = 0; i <K; i++) {
 
-            String dirAndPositionOfAttack = s.nextLine();
-            String[] arrayOfDirANdPosition = dirAndPositionOfAttack.split(" ");
-            arrayOfDragonAttacks[i][0] = Integer.valueOf(arrayOfDirANdPosition[0]);
-            arrayOfDragonAttacks[i][1] = Integer.valueOf(arrayOfDirANdPosition[1]);
+            arrayOfDragonAttacks[i][0] = s.nextInt();
+            arrayOfDragonAttacks[i][1] = s.nextInt();
 
         }
         s.close();
@@ -98,7 +94,5 @@ public class ChasingDragon {
 //            me=drgn;
 //            j++;
 //        }
-//
-//
 //    }
 //}

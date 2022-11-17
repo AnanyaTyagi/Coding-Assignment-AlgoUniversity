@@ -6,30 +6,26 @@ public class Sphinx {
 
         public static void main(String[] args) {
             Scanner s = new Scanner(System.in);
-            String N = s.nextLine();
-            int[] array = new int[Integer.valueOf(N)+1];
-            String stringOfNumbers = s.nextLine();
-            String[] arrayOfNumbers = stringOfNumbers.split(" ");
-            String Q = s.nextLine();
+            Long N = s.nextLong();
+            long[] array = new long[(int) (N+1)];
 
-            int sum = 0;
-            for (int i = 1; i <= Integer.valueOf(N); i++) {
-                sum +=Integer.valueOf(arrayOfNumbers[i-1]);
+            long sum = 0;
+            for (int i = 1; i <= N; i++) {
+                array[i] = s.nextLong();
+                sum +=array[i];
                 array[i]= sum;
             }
-           // int[] results = new int[Integer.valueOf(N)];
-            for(int i = 0; i<Integer.valueOf(Q) ; i++) {
-                String stringOfQuery = s.nextLine();
-                String[] arrayOfQuery = stringOfQuery.split(" ");
-                if(Integer.valueOf(arrayOfQuery[0]) == 1){
-                   System.out.println(array[Integer.valueOf(arrayOfQuery[1])]);
+            Long Q = s.nextLong();
+
+            for(int i = 0; i<Q ; i++) {
+                Long l = s.nextLong();
+                Long r = s.nextLong();
+                if(l == 1){
+                   System.out.println(array[Math.toIntExact(r)]);
                     continue;
                 }
-                System.out.println(array[Integer.valueOf(arrayOfQuery[1])]-array[Integer.valueOf(arrayOfQuery[0])-1]);
+                System.out.println(array[Math.toIntExact(r)]-array[(int) (l-1)]);
             }
 
-//            for(int i = 0; i<Integer.valueOf(Q) ; i++) {
-//                  System.out.println(results[i]);
-//              }
             }
 }
