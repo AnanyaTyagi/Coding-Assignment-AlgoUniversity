@@ -1,25 +1,55 @@
 package Hashing;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class UniqueWindow {
-    public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        Integer N = s.nextInt();
-        Integer M = s.nextInt();
+    public static void main(String[] args) throws IOException {
+       // Scanner s = new Scanner(System.in);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        String[] str = bufferedReader.readLine().split(" ");
+        Integer N = Integer.parseInt(str[0]);
+        Integer K = Integer.parseInt(str[1]);
+        String[] st = bufferedReader.readLine().split(" ");
 
-        int[] array1 = new int[N];
-        int[] array2 = new int[M];
-        Set<Integer> set = new HashSet<Integer>();
-        HashMap<Integer, Integer> map = new HashMap<>();
-
-
+        int[] array = new int[N];
+        int[] map = new int[101];
         for (int i = 0; i < N; i++) {
-            array1[i] = s.nextInt();
-            map.put(array1[i], i);
+            array[i] = Integer.parseInt(st[i]);
+        }
+
+        int distinctCount = 0;
+        for (int i = 0; i < K; i++) {
+            if (map[array[i]] == 0) {
+                map[array[i]] = 1;
+                distinctCount++;
+             }
+            else{
+                int count = map[array[i]];
+                map[array[i]]= ++count;
+            }
+        }
+       System.out.print(distinctCount + " ");
+
+        for(int i = K; i<N; i++) {
+          //  System.out.println(map);
+            if(map[array[i-K]] > 1){
+              int count= map[array[i-K]];
+              map[array[i-K]]= --count;
+            } else{
+               map[array[i-K]]=0;
+               distinctCount--;
+            }
+            if(map[array[i]]==0) {
+                map[array[i]] = 1;
+                distinctCount++;
+            }
+            else{
+                int count = map[array[i]];
+                map[array[i]]= ++count;
+            }
+            System.out.print(distinctCount + " ");
         }
     }
 }

@@ -36,7 +36,6 @@ public class CowArrival{
     public static void sortbyColumn(int arr[][], int col)
     {
         Arrays.sort(arr, new Comparator<int[]>() {
-       //you didn't check comparator earlier
             @Override
             public int compare( int[] entry1,
                                 int[] entry2) {
