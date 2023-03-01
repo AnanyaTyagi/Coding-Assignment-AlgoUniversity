@@ -1,15 +1,14 @@
 package WarmUp;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class SnowFlake2 {
 
     public static void main(String[] args) {
+
+        //single nodes
+        //two similar degrees that is greater than one
+        //two nodes with different degrees but connected in same snowflake
 
         Scanner s = new Scanner(System.in);
         String stringOfPositions = s.nextLine();
@@ -108,6 +107,7 @@ public class SnowFlake2 {
         Map<Integer, Integer> mapOfDegrees = new HashMap<>();
         Map<Integer, Integer> sizeMap = new HashMap<>();
 
+        //for duplicacy
         for (Map.Entry<Integer, List<Integer>> entry : mapOfNodesWithDegreedNodes.entrySet()) {
             if (entry.getValue().size() != 1) {
                 mapOfDegrees.put(entry.getKey(), entry.getValue().size());
@@ -119,6 +119,7 @@ public class SnowFlake2 {
                 }
             }
         }
+
 
         for (Map.Entry<Integer, Integer> entry : mapOfDegrees.entrySet()) {
 

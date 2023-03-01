@@ -1,2 +1,5 @@
-package JobOverflow.Graphs;public class MaximumBombs {
+package JobOverflow.Graphs;
+
+public class MaximumBombs {
+
 }
