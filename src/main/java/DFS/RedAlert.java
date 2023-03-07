@@ -11,7 +11,6 @@ public class RedAlert {
         int[] redNodes = new int[N+1];
         int result = 0;
 
-
         int visited[] = new int[N+1];
         for(int i = 1; i<=N; i++){
              redNodes[i] = sc.nextInt();
@@ -34,6 +33,7 @@ public class RedAlert {
     }
 
     private static int dfs(int i, int[] visited,Map<Integer, List<Integer>> adjMap, int[] redNodes, int consecutive_fire, int C) {
+
         visited[i] = 1;
         consecutive_fire+=redNodes[i];
 
@@ -58,6 +58,7 @@ public class RedAlert {
             }
 
         }
+
         // if, it's leaf we return 1
         if( is_leaf )
             return 1;

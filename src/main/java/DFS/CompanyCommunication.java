@@ -2,28 +2,27 @@ package DFS;
 
 import java.util.*;
 
-public class MostProfitableTeam {
+public class CompanyCommunication {
 
     public static void main(String args[]) {
         Map<Integer, List<Integer>> adjMap = new HashMap<>();
         Scanner sc = new Scanner(System.in);
-        int noOfEmployees = sc.nextInt();
-        int[] profits = new int[noOfEmployees+1];
-        int[] results = new int[noOfEmployees+1];
-
-        int visited[] = new int[noOfEmployees+1];
-        for(int i = 2; i<=noOfEmployees; i++){
-            int boss = sc.nextInt();
-            List<Integer> children = new ArrayList<>();
-            if(adjMap.containsKey(boss)){
-                children = adjMap.get(boss);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+         for(int i = 1; i<N;i++){
+             List<Integer> list = new ArrayList<>();
+             String str = sc.nextLine();
+            String[] strArray= str.split(" ");
+            int n = strArray.length;
+            int j =0;
+            while(n>0){
+                list.add(strArray[j])
+                n--;
             }
-            children.add(i);
-            adjMap.put(boss, children);
-        }
-        for(int i = 1; i<=noOfEmployees; i++){
-            profits[i] = sc.nextInt();
-        }
+             adjMap.put(i, )
+         }
+
+        for()
         dfs(1, visited,profits, results, adjMap);
         int max = Integer.MIN_VALUE;
         for(int i = 1; i<=noOfEmployees; i++){
