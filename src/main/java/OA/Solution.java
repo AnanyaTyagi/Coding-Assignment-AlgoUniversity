@@ -1,16 +1,6 @@
 package OA;
 
 import java.util.Scanner;
-
-public class Solution {
-
-    public static void main(String args[]){
-        Scanner sc  = new Scanner(System.in);
-        // you can also use imports, for example:
-// import java.util.*;
-
-// you can write to stdout for debugging purposes, e.g.
-// System.out.println("this is a debug message");
 import java.util.*;
 
         class Solution {
@@ -55,7 +45,3 @@ import java.util.*;
                 return new String(solution);
             }
         }
-
-
-    }
-}
