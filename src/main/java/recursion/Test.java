@@ -35,7 +35,7 @@ public class Test {
              r--;
              maxLength = maxLength-2;
          }
-         for
+
          return 0;
     }
 }
