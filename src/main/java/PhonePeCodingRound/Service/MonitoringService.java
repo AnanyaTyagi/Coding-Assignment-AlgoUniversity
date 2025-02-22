@@ -12,6 +12,15 @@ public class MonitoringService {
     private ArrayList<AlertConfigListObject> configList;
     private ConcurrentHashMap<String, List<Event>> eventMap;
     private ExecutorService executorService;
+    private static long windowStartTime = 10000000;
+    private AlertService alertService = new AlertService();
+//     public void resetWindowTime(){
+//while(1){
+//
+//    Thread.sleep(10000);
+//    windowStartTime.
+//}
+//     }
 
     public MonitoringService(ArrayList<AlertConfigListObject> configList) {
         this.configList = configList;
@@ -47,7 +56,7 @@ public class MonitoringService {
         System.out.println("[INFO] MonitoringService: Client " + config.client + " " + config.eventType + " TUMBLING_WINDOW starts");
         if (count >= config.alertConfig.count) {
             System.out.println("[INFO] MonitoringService: Client " + config.client + " " + config.eventType + " threshold breached");
-            dispatchAlert(config);
+            alertService.dispatchAlert(config);
         }
         System.out.println("[INFO] MonitoringService: Client " + config.client + " " + config.eventType + " TUMBLING_WINDOW ends");
     }
@@ -62,19 +71,19 @@ public class MonitoringService {
 
         if (count >= config.alertConfig.count) {
             System.out.println("[INFO] MonitoringService: Client " + config.client + " " + config.eventType + " threshold breached");
-            dispatchAlert(config);
+            alertService.dispatchAlert(config);
         }
     }
 
-    private void dispatchAlert(AlertConfigListObject config) {
-        for (DispatchStrategyList strategy : config.dispatchStrategyList) {
-            if ("CONSOLE".equals(strategy.type)) {
-                System.out.println("[INFO] AlertingService: Dispatching to Console");
-                System.out.println("[WARN] Alert: `" + strategy.message + "`");
-            } else if ("EMAIL".equals(strategy.type)) {
-                System.out.println("[INFO] AlertingService: Dispatching an Email");
-                System.out.println("[INFO] Email Subject: `" + strategy.subject + "`");
-            }
-        }
-    }
+//    private void dispatchAlert(AlertConfigListObject config) {
+//        for (DispatchStrategyList strategy : config.dispatchStrategyList) {
+//            if ("CONSOLE".equals(strategy.type)) {
+//                System.out.println("[INFO] AlertingService: Dispatching to Console");
+//                System.out.println("[WARN] Alert: `" + strategy.message + "`");
+//            } else if ("EMAIL".equals(strategy.type)) {
+//                System.out.println("[INFO] AlertingService: Dispatching an Email");
+//                System.out.println("[INFO] Email Subject: `" + strategy.subject + "`");
+//            }
+//        }
+//    }
 }

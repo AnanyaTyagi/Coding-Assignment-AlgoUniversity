@@ -47,6 +47,5 @@ public class ProgrammingLibrary {
             }
         }
         stack.push(i);
-
     }
 }
