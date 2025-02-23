@@ -16,6 +16,8 @@ public class Spaceship {
 
         int minUnstability = Integer.MAX_VALUE;
         Arrays.sort(array);
+
+        //check for all pairs..skip i and j as single seaters and then calculate unstability
         for (int i = 0; i < 2 * N; i++) {
             for (int j = i + 1; j < 2 * N; j++) {
                 int totalUnstability = 0;

@@ -92,3 +92,20 @@ public class Histogram {
 
     }
 }
+
+//    public static void largestRectangleArea(int[] heights){
+//        Stack<Integer> st = new Stack<>();
+//        int maxArea = 0;
+//        st.push(-1);
+//        for(int i=0;i<=heights.length;i++)
+//        {
+//            int val = i==heights.length ? 0 : heights[i];
+//            while(st.peek() != -1 && heights[st.peek()] >= val)
+//            {
+//                int rightMin = i;
+//                int height = heights[st.pop()];
+//                int leftMin = st.peek();
+//                maxArea = Math.max(maxArea,height*(rightMin-leftMin-1));
+//            }
+//            st.push(i);
+//        }
